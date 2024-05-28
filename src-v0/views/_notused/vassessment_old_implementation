@@ -1,0 +1,193 @@
+
+MMH: This is code from first implemenatation of vassessment.
+     Unused but saved just in case.
+
+# # ******************************************************************************
+# def query_modules_without_answers(imreferral_purchase):
+#     return meval_module.objects \
+#         .filter(meval_category=imreferral_purchase.meval_category) \
+#         .annotate(num_answers=Count('meval_useranswer', filter=Q(meval_useranswer__mreferral_purchase=imreferral_purchase))) \
+#         .filter(num_answers__lte=0)
+
+
+# # ******************************************************************************
+# def view_chunk_column_01_module_question_links(request, imreferral_purchase, qs_modules, current_module_url_text=""):
+#     context = {
+#         'qs'                        : qs_modules,
+#         'current_module_url_text'   : current_module_url_text,
+#         'imreferral_purchase'       : imreferral_purchase,
+#     }
+#     return render_to_string("mmr_v1/tchunk_column_01_module_question_links.html", context)
+
+# # ******************************************************************************
+# def view_chunk_column_01_module_answer_links(request, imreferral_purchase, qs_modules, current_module_url_text=""):
+#     context = {
+#         'qs'                        : qs_modules,
+#         'current_module_url_text'   : current_module_url_text,
+#         'imreferral_purchase'       : imreferral_purchase,
+#     }
+#     return render_to_string("mmr_v1/tchunk_column_01_module_answer_links.html", context)
+
+
+# # ******************************************************************************
+# @custom_assessment_view_decorator
+# def vassessment_module_answers(request, module, string_32):
+#     title       = "vassessment_module_answers"
+#     viewname    = "vassessment_module_answers"
+#     column_01   = ""
+#     column_02   = ""
+#     column_03   = ""
+#
+#     imreferral_purchase     = mreferral_purchase.objects.get_valid_mreferral_purchase_for_user(request, string_32)
+#     imeval_module           = meval_module.objects.get(meval_category=imreferral_purchase.meval_category, url_text=module)
+#     qs_modulesWithAnswers   = query_modules_with_answers(imreferral_purchase)
+#     # zzz_print("    %-28s: %s" % ("qs_modulesWithAnswers", qs_modulesWithAnswers))
+#     # zzz_print("    %-28s: %s" % ("qs_modulesWithAnswers.count()", qs_modulesWithAnswers.count()))
+#
+#     column_01 = view_chunk_column_01_module_answer_links(request, imreferral_purchase, qs_modulesWithAnswers, current_module_url_text=module)
+#     column_02 =  "ALL QUESTIONS ARE ANSWERED FOR ASSESSMENT CATEGORY " + imreferral_purchase.meval_category.display_text + ". "
+#     column_02 += "CURRENTLY VIEWING " + imeval_module.display_text + ". "
+#     column_02 += "INSERT WHATEVER ELSE WE WANT TO PUT HERE."
+#
+#     template = loader.get_template('mmr_v1/tbase_3columns_1footer.html')
+#     context = {
+#         'column_01'                     : column_01,
+#         'column_02'                     : column_02,
+#         'column_03'                     : column_03,
+#         'title'                         : title,
+#         'viewname'                      : viewname,
+#         'templatename'                  : template.origin.__str__().rsplit('/', 1)[1],
+#     }
+#     return HttpResponse(template.render(context, request))
+
+# # ******************************************************************************
+# @custom_assessment_view_decorator
+# def vassessment_module_questions(request, module, string_32):
+#     title       = "vassessment_module_questions"
+#     viewname    = "vassessment_module_questions"
+#     column_01   = ""
+#     column_02   = ""
+#     column_03   = ""
+#
+#     imreferral_purchase         = mreferral_purchase.objects.get_valid_mreferral_purchase_for_user(request, string_32)
+#     imeval_module               = meval_module.objects.get(meval_category=imreferral_purchase.meval_category, url_text=module)
+#     qs_modulesWithoutAnswers    = query_modules_without_answers(imreferral_purchase)
+#     # zzz_print("    %-28s: %s" % ("qs_modulesWithoutAnswers", qs_modulesWithoutAnswers))
+#     # zzz_print("    %-28s: %s" % ("qs_modulesWithoutAnswers.count()", qs_modulesWithoutAnswers.count()))
+#
+#     column_01 = view_chunk_column_01_module_question_links(request, imreferral_purchase, qs_modulesWithoutAnswers, current_module_url_text=module)
+#     column_02 = view_chunk_column_02_module_question_reply__v2_as_form(request, imreferral_purchase, imeval_module)
+#
+#     # If column_02 is empty that means the form successfully processed and so redirect
+#     if not column_02:
+#         # zzz_print("    %-28s: %s" % ("column_02 is empty", "Form must have processed successfully. Redirecting to vassessment_home"))
+#         return HttpResponseRedirect(reverse('vassessment_home', kwargs={'string_32':string_32}))
+#
+#     template = loader.get_template('mmr_v1/tbase_3columns_1footer.html')
+#     context = {
+#         'column_01'                     : column_01,
+#         'column_02'                     : column_02,
+#         'column_03'                     : column_03,
+#         'title'                         : title,
+#         'viewname'                      : viewname,
+#         'templatename'                  : template.origin.__str__().rsplit('/', 1)[1],
+#     }
+#     return HttpResponse(template.render(context, request))
+
+# class ModelChoiceField_withDifferentLabel(forms.ModelChoiceField):
+#     def label_from_instance(self, obj):
+#         return "BLUEBLUEBLUE"
+
+
+# # ******************************************************************************
+# def view_chunk_column_02_category_score_recommendations(imreferral_purchase):
+#     # zzz_print("    %-28s: %s" % ("view_chunk_column_02_category_score_recommendations", ""))
+#     # zzz_print("    %-28s: %s" % ("imreferral_purchase", imreferral_purchase))
+#
+#     users_score_aggregate = meval_useranswer.objects \
+#         .filter(mreferral_purchase=imreferral_purchase) \
+#         .aggregate(Sum('meval_reply__score'))
+#
+#     zzz_print("    %-28s: %s" % ("users_score_aggregate", users_score_aggregate))
+#     zzz_print("    %-28s: %s" % ("users_score_aggregate[meval_reply__score__sum]", users_score_aggregate['meval_reply__score__sum']))
+#
+#     users_score = users_score_aggregate['meval_reply__score__sum']
+#
+#     qs = meval_userscorerecommendation.objects \
+#         .filter(meval_category=imreferral_purchase.meval_category) \
+#         .filter(score_low__lte=users_score) \
+#         .filter(score_high__gte=users_score) \
+#         .order_by('priority')
+#     zzz_print("    %-28s: %s" % ("qs.count()", qs.count()))
+#
+#     context = {
+#         'qs'                        : qs,
+#         'users_score'               : users_score,
+#         'imreferral_purchase'       : imreferral_purchase,
+#     }
+#     return render_to_string("mmr_v1/tchunk_column_02_category_score_recommendations.html", context)
+
+# # ******************************************************************************
+# @custom_assessment_view_decorator
+# def vassessment_home(request, string_32):
+#     title    = "vassessment_home"
+#     viewname = "vassessment_home"
+#     # zzz_print("    %-28s: %s" % ("VIEW", viewname))
+#     # zzz_print("    %-28s: %s" % ("string_32", string_32))
+#
+#     column_01 = ""
+#     column_02 = ""
+#     column_03 = ""
+#
+#     imreferral_purchase         = mreferral_purchase.objects.get_valid_mreferral_purchase_for_user(request, string_32)
+#     if not imreferral_purchase.terms_accepted:
+#         return HttpResponseRedirect(reverse('vassessment_terms', kwargs={'string_32':string_32}))
+#
+#     qs_modulesWithoutAnswers    = query_modules_without_answers(imreferral_purchase)
+#     zzz_print("    %-28s: %s" % ("imreferral_purchase.id", imreferral_purchase.id))
+#     zzz_print("    %-28s: %s" % ("qs_modulesWithoutAnswers", qs_modulesWithoutAnswers))
+#     zzz_print("    %-28s: %s" % ("qs_modulesWithoutAnswers.count()", qs_modulesWithoutAnswers.count()))
+#
+#     if qs_modulesWithoutAnswers.count():
+#         zzz_print("    %-28s: %s" % ("vassessment_home", "QUESTIONS STILL PENDING"))
+#         column_01 = view_chunk_column_01_module_question_links(request, imreferral_purchase, qs_modulesWithoutAnswers, current_module_url_text="")
+#         column_02 += "CURRENTLY VIEWING HOME VIEW FOR ASSESSMENT CATEGORY " + imreferral_purchase.meval_category.display_text + ". "
+#         column_02 += "THERE ARE STILL QUESTIONS TO ANSWER FOR THIS CATEGORIES MODULES. The links to the left show the modules with questions still pending. "
+#         column_02 += "INSERT WHATEVER ELSE WE WANT TO PUT HERE."
+#     else:
+#         zzz_print("    %-28s: %s" % ("vassessment_home", "QUESTIONS NOT PENDING"))
+#         qs_modulesWithAnswers = query_modules_with_answers(imreferral_purchase)
+#         column_01 = view_chunk_column_01_module_answer_links(request, imreferral_purchase, qs_modulesWithAnswers, current_module_url_text="")
+#         column_02 = view_chunk_column_02_category_score_recommendations(imreferral_purchase)
+#
+#     template = loader.get_template('mmr_v1/tbase_3columns_1footer.html')
+#     context = {
+#         'column_01'                     : column_01,
+#         'column_02'                     : column_02,
+#         'column_03'                     : column_03,
+#         'title'                         : title,
+#         'viewname'                      : viewname,
+#         'templatename'                  : template.origin.__str__().rsplit('/', 1)[1],
+#     }
+#     return HttpResponse(template.render(context, request))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
