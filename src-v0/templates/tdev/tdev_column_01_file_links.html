@@ -1,0 +1,22 @@
+
+
+{% for filename in filelist %}
+    {% if filename == current_filename %}
+      <b>{{ current_filename }}</b><BR>
+    {% else %}
+        <a href={% url 'vdev_logs' filename %}>{{ filename }}</a><BR>
+    {% endif %}
+{% endfor %}
+
+
+
+{% comment "context" %}
+  context = {
+      'filelist'          : filelist,
+      'current_filename'  : current_filename,
+  }
+{% endcomment %}
+
+
+
+

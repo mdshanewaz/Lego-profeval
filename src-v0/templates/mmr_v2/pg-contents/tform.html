@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="feature col">
+    <div class="card border">
+        <form class="p-3" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group col-md-6 mb-0">
+              {{form.as_table}}
+            </div>
+            <button class="btn btn-primary btn-xs rounded-0" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% comment "Optional note" %}
+{{ form.display_text|as_crispy_field }}
+{{ form.display_text }}
+{% endcomment %}
+

@@ -1,0 +1,19 @@
+{% if uv_params %}
+  {% comment "THIS PORTION OF IF STATEMENT USING uv_params HAS NOT BEEN TESTED " %}
+  {% endcomment %}
+  <a href={% url uv_view uv_params %}>{{ uv_displaytext }} THIS HAS NOT BEEN TESTED </a>
+{% else %}
+<a href={% url uv_view %}>{{ uv_displaytext }}</a>
+{% endif %}
+
+{% comment "context" %}
+  context = {
+      'uv_view'           : 'vdev_resendfailedemails',
+      'uv_params'         : "",
+      'uv_displaytext'    : "Try To Resend All Failed Emails"
+  }
+{% endcomment %}
+
+
+
+

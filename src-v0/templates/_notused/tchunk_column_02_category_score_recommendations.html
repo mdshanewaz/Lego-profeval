@@ -1,0 +1,28 @@
+<b>USERS SCORE: {{ users_score }}</b><BR>
+<BR>
+<BR>
+<b>RECOMMENDATIONS:</b><BR>
+<BR>
+<BR>
+
+{% for instance in qs %}
+  <B>{{ instance.display_text }}</b>: (
+  Priority {{ instance.priority }},
+  score_low {{ instance.score_low }},
+  score_high {{ instance.score_high }}
+  )
+{% endfor %}
+
+
+
+{% comment "context" %}
+context = {
+    'qs'                        : qs,
+    'users_score'               : users_score,
+    'imreferral_purchase'       : imreferral_purchase,
+}
+{% endcomment %}
+
+
+
+

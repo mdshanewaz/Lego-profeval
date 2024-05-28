@@ -1,0 +1,81 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block head %}
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <link rel="shortcut icon" href="{% static 'resumeweb/assets/favicon/favicon.ico' %}" type="image/x-icon" />
+      <link rel="stylesheet" href="{% static 'resumeweb/assets/css/libs.bundle.css' %}" type="text/css" />
+      <link rel="stylesheet" href="{% static 'resumeweb/assets/css/theme.bundle.css' %}" type="text/css" />
+
+      <title>{% if title %}{{title}}{% else %}TITLE NOT PROVIDED{% endif %}</title>
+
+      {% if meta_description %}<meta content="" name={{meta_description}}>{% endif %}
+      {% if meta_keywords %}<meta content="" name={{meta_keywords}}>{% endif %}
+
+    {% endblock head %}
+  </head>
+
+
+  <body>
+    {% include 'resumeweb/components/menus/header/main-menu-2.html' %}
+    <div class="container"><div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+    {% if viewname %}<div class="feature col"><B>Viewname:</B>&nbsp;&nbsp;{{ viewname }}</div>{% endif %}
+    {% if templatename %}<div class="feature col"><B>Template:</B>&nbsp;&nbsp;{{ templatename }}</div>{% endif %}
+    </div></div>
+
+    <div class="py-5">
+      <div class="container">
+          {% comment "Optional note" %}
+          IDEA BEHIND THIS IF, ELIF, ELSE STATEMENT IS TO BETTER FORMAT THE COLUMNS
+          TO BE DISPLAYED PROPERLY DEPENDING ON IF 3, 2 OR 1 COLUMN OF DATA IS PROVIDED.
+          CURRENTLY DOESN'T QUITE WORK BUT I DON'T KNOW WHAT THE CSS CLASSES DO.
+          {% endcomment %}
+          {% if column_03 %}
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+          {% elif column_02 %}
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+          {% else %}
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-1">
+          {% endif %}
+
+            {% if column_01 %}<div class="feature col">{{column_01}}</div>{% endif %}
+            {% if column_02 %}<div class="feature col">{{column_02|safe}}</div>{% endif %}
+            {% if column_03 %}<div class="feature col">{{column_03}}</div>{% endif %}
+          </div>
+      </div>
+    </div>
+    {% if footer_01 %}
+    <div class="py-5">
+      <div class="container">
+          <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">{{footer_01}}</div>
+          </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% include 'resumeweb/components/ques_abt_prod.html' %}
+  </body>
+</html>
+
+<!-- ============================================== -->
+{% comment "Optional note" %}
+  <!-- NAVBAR -->
+  {% include 'resumeweb/components/menus/header/main-menu-2.html' %}
+
+  <!-- ques about product  -->
+  {% include 'resumeweb/components/ques_abt_prod.html' %}
+{% endcomment %}
+
+{% comment "This template copied from careercoach/resumeweb/templates/base_design_v3.html but ALL THE JAVASCRIPT SCRIPT srcs are removed " %}
+{% endcomment %}
+
+{% comment "WHEN THIS IS WORKING REMOVE tbase.html and mmr/tdev.html BECAUSE THIS IS A MERGER OF THE TWO OF THEM " %}
+{% endcomment %}
+
+
+
+

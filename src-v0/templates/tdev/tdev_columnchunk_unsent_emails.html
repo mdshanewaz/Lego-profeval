@@ -1,0 +1,35 @@
+
+<table>
+
+<tr>
+  <th>Id</th>
+  <th>Subject</th>
+  <th>Error Title</th>
+  <th>Error Description</th>
+  <th>Error Recipient String</th>
+</tr>
+
+{% for instance in qs %}
+<tr>
+  <td>{{ instance.id }}</td>
+  <td>{{ instance.subject }}</td>
+  {% for error_instance in instance.msendmail_failure_set.all %}
+    {% if forloop.last %}
+      <td>{{ error_instance.title }}</td>
+      <td>{{ error_instance.description }}</td>
+      <td>{{ error_instance.recipient_string }}</td>
+    {% endif %}
+  {% endfor %}
+<tr>
+{% endfor %}
+</table>
+
+{% comment "context" %}
+  context = {
+      'qs'                        : qs_unsent_emails
+  }
+{% endcomment %}
+
+
+
+

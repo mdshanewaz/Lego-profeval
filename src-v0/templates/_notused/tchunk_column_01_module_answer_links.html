@@ -1,0 +1,25 @@
+
+
+{% for instance in qs %}
+  {% if instance.num_answers %}
+    {% if instance.url_text == current_module_url_text %}
+      <b>{{ current_module_url_text }}</b><BR>
+    {% else %}
+        <a href={% url 'vassessment_module_answers' instance.url_text imreferral_purchase.random_string_32 %}>{{ instance.url_text }}</a><BR>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+
+
+{% comment "context" %}
+  context = {
+      'qs'                        : qs of meval_module.objects()
+      'current_module_url_text'   : current_module_url_text,
+      'imreferral_purchase'       : imreferral_purchase,
+  }
+{% endcomment %}
+
+
+
+

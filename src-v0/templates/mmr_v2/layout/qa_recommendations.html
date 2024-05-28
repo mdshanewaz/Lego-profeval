@@ -1,0 +1,74 @@
+{% extends 'mmr_v2/base_mmr.html' %}
+{% load static %}
+
+{% block content %}
+
+  <section class="pt-8 pt-md-11">
+    <div class="container">
+
+      <div class="row align-items-center">
+        <div class="col-12 col-md">
+
+          <!-- Link -->
+          <a href="#!" class="fw-bold fs-sm text-decoration-none mb-3">
+            <i class="fe fe-arrow-start me-3"></i>
+          </a>
+
+          <!-- Heading -->
+          <h1 class="display-4 mb-2">
+            Referral Assessment
+          </h1>
+
+          <!-- Text -->
+          <p class="fs-lg text-gray-700 mb-5 mb-md-0">
+            {{ imreferral_purchase.meval_category }}
+          </p>
+
+        </div>
+        <div class="col-auto">
+          something to be added
+        </div>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="display-4 mb-2">
+        Users Score
+      </h1>
+
+      <!-- Text -->
+      <p class="fs-lg text-gray-700 mb-5 mb-md-0">
+        {{ users_score }}
+      </p>
+
+
+      <div class="row">
+        <div class="col-12">
+          <hr class="my-6 my-md-8 border-gray-300">
+        </div>
+      </div>
+
+      <div class="row">
+
+        <!-- LEFT COLUMN -->
+        <div class="col-12 col-md-8">
+          {% for instance in qs %}
+            <B>{{ instance.display_text }}</b>: (
+            Priority {{ instance.priority }},
+            score_low {{ instance.score_low }},
+            score_high {{ instance.score_high }}
+            )<br>
+          {% endfor %}
+
+
+        </div>
+
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-12 col-md-4">
+          <!-- to be included later  -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
