@@ -1,0 +1,496 @@
+.bold-font {
+ font-weight: 600;
+}
+
+
+.active {
+
+}
+
+
+.hide-now{
+  display: none;
+}
+
+.container-sticky {
+  display: flex;
+  align-items: flex-start;
+  height: 80%;
+}
+
+.punk {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2rem;
+}
+
+.pony {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.dino {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 1rem;
+  align-self: flex-end;
+}
+
+/*--------------------------------------------------------------
+# disabled link
+--------------------------------------------------------------*/
+.disabled-link {
+  cursor: default;
+  pointer-events: none;
+  text-decoration: none;
+  color: gray;
+
+}
+
+
+
+/*--------------------------------------------------------------
+# sidebar
+--------------------------------------------------------------*/
+.card1 h2{
+  font-weight: 600;
+}
+
+.no-padding {
+  padding-left: 0px;
+}
+
+
+@media (max-width: 576px) {
+  .no-padding {
+    padding-left: 15px;
+  }
+
+  .reposition-sidebar-other {
+    padding-left: 0px;
+  }
+}
+
+
+.square-bullet {
+  list-style-type: square;
+}
+
+/*--------------------------------------------------------------
+# text colors
+--------------------------------------------------------------*/
+
+.ccv1-secondary-text {
+ color: #205ff0
+}
+
+
+.ccv1-primary-text {
+ color: #00a877;
+}
+
+
+/*--------------------------------------------------------------
+# background colors
+--------------------------------------------------------------*/
+
+.subsection-colors {
+  background-color: #010351;
+  color: #fff;
+}
+
+
+/* promo offer divs  */
+.promo-bg1 {
+    background-color: #ffcc33;
+}
+
+
+.promo-bg2 {
+    background-color: #fff8dc;
+}
+
+
+.promo-bg3 {
+    background-color: #6495ED;
+}
+
+.badge-tag1 {
+    background-color: #ffd700;
+}
+
+
+
+.breaknews-bgcolor {
+  background-color:#010351;
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+.section-padding-top-regular {
+  padding-top: 2rem;
+
+}
+
+.section-padding-top-medium {
+  padding-top: 3rem;
+
+}
+
+
+.section-padding-top-xtend {
+  padding-top: 6rem;
+}
+
+
+.section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 5px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  margin: 4px 10px;
+}
+
+.section-title p {
+  font-size: 3.8rem;
+
+}
+
+
+/*--------------------------------------------------------------
+# Features
+--------------------------------------------------------------*/
+.features .icon-box {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: ease-in-out 0.3s;
+}
+
+.features .icon-box i {
+  font-size: 32px;
+  padding-right: 10px;
+  line-height: 1;
+}
+
+.features .icon-box h3 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 16px;
+}
+
+.features .icon-box h3 a {
+  color: #000;
+  transition: ease-in-out 0.3s;
+}
+
+.features .icon-box h3 a:hover {
+  color: #000;
+}
+
+.features .icon-box:hover {
+  background: #fff;
+}
+
+
+
+/*--------------------------------------------------------------
+# Custom
+--------------------------------------------------------------*/
+.li bg-this {
+  background-color: #ff0000;
+}
+
+/* font-family: OpenSans,Arial,sans-serif */
+
+@media (min-width: 1240px) {
+    .container{
+        max-width: 1300px;
+    }
+}
+
+.recom li:hover{
+    background:#FF0000 !important;
+}
+
+html, body {
+  font-family: ;
+  /* background-color: #e3e3e3; */
+  background-color: #fff;
+  color: #17202A;
+  text-decoration: none;
+}
+
+a, a:hover {
+  color: #17202A;
+  text-decoration: none;
+}
+
+
+.bg-theme-primary {
+  background-color: #010351;
+}
+
+
+.btn-ccv1-primary {
+  border-color: #010351;
+  background-color: #fff;
+  color: #040680;
+}
+
+
+.navbar-nav li:hover .dropdown-menu {
+    display: block;
+}
+
+/* rotate caret on hover */
+.dropdown-menu > li > a:hover:after {
+    text-decoration: underline;
+    transform: rotate(-90deg);
+}
+
+.logo-div-items-align {
+  padding: 10px 5px;
+  /* margin-top: 1rem!important; */
+}
+
+
+.bg-color-234{
+  background-color: #aaaaaa;
+}
+
+
+.ccv1-bg-secondary {
+ background-color: #E9E9E9;
+}
+
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .upload-res-font{
+    font-size: 10px;
+  }
+}
+
+
+.mainmenu-bgheight {
+  min-height: 3.0rem;
+
+}
+
+
+.list-group-item{
+padding: 0.5rem 0.25rem
+}
+
+
+.{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.-exp180-home{
+  padding-right: 40px;
+  padding-left: 0px;
+}
+
+
+.reposition-sidebar{
+  padding-right: 0px;
+  padding-left: 40px;
+}
+
+
+.reposition-sidebar-other{
+  padding-right: 0px;
+  /*padding-left: 40px; */
+}
+
+
+.uploadresfont {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+.mainmenu-bgcolor{
+ background-color: #ff0000;
+}
+
+
+.icon-style-img {
+  width: 10%;
+}
+
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+
+
+.cancel-padding-left {
+  padding-left: 0rem;
+}
+
+
+.left-margin-align {
+  margin-left: 20px;
+}
+
+/* stylelint-disable selector-list-comma-newline-after */
+
+
+
+.display-4 {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+
+@media (max-width: 1199px) {
+  .upload-res-font {
+    font-size: 3.55rem;
+  }
+}
+
+
+.nav-scroller-breaking-news {
+  position: relative;
+  z-index: 2;
+  height: 2.00rem;
+  overflow-y: hidden;
+}
+
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+}
+
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer-bg {
+  background-color: #EAEDED;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.footer a {
+    font-size: 12px;
+}
+
+.footer-abt-block a {
+  text-decoration: underline;
+}
+
+.footer-allserv-font-sz{
+  font-size: 12px;
+}
+
+
+.footer-alinks{
+  padding: 2px 0px;
+}
+
+.footer-li-links-267:hover, .footer-alinks:hover {
+  text-decoration: underline;
+
+}
+
+.footer-li-links-099:hover {
+  text-decoration: none;
+
+}
+
+
+.footer-menu li {
+  list-style-type: none;
+}
+
+
+
+/*--------------------------------------------------------------
+# paypal
+--------------------------------------------------------------*/
+@media screen and (max-width: 400px) {
+ #paypal-button-container {
+ width: 100%;
+ }
+}
+
+@media screen and (min-width: 400px) {
+ #paypal-button-container {
+ width: 250px;
+ }
+}
